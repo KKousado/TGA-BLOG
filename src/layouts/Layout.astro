@@ -1,0 +1,43 @@
+---
+import '@fontsource-variable/inter';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="TGA Gaming Blog - The Latest in Gaming News and Awards" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-ios-bg min-h-screen">
+    <header class="sticky top-0 bg-ios-card/80 backdrop-blur-lg border-b border-gray-200">
+      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center">
+          <a href="/" class="text-2xl font-bold text-ios-text">TGA Blog</a>
+        </div>
+        <div class="flex space-x-6">
+          <a href="/news" class="text-ios-text hover:text-ios-primary">News</a>
+          <a href="/games" class="text-ios-text hover:text-ios-primary">Games</a>
+          <a href="/insights" class="text-ios-text hover:text-ios-primary">Insights</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: 'Inter Variable', system-ui, sans-serif;
+  }
+</style>

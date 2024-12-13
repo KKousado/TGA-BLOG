@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GamePin from '../components/GamePin.astro';
+import NewsCard from '../components/NewsCard.astro';
+
+const featuredGames = [
+  {
+    title: "Baldur's Gate 3",
+    image: "https://example.com/bg3.jpg",
+    rating: 9.8,
+    category: "RPG"
+  },
+  {
+    title: "Marvel's Spider-Man 2",
+    image: "https://example.com/spiderman2.jpg",
+    rating: 9.5,
+    category: "Action"
+  },
+  {
+    title: "Alan Wake 2",
+    image: "https://example.com/aw2.jpg",
+    rating: 9.3,
+    category: "Horror"
+  }
+];
+
+const latestNews = [
+  {
+    title: "The Game Awards 2024: What to Expect",
+    excerpt: "A preview of the upcoming awards ceremony and potential surprises...",
+    date: new Date('2024-03-20'),
+    image: "https://example.com/tga2024.jpg"
+  },
+  {
+    title: "Gaming Industry Trends 2024",
+    excerpt: "Analysis of the latest developments in gaming technology and design...",
+    date: new Date('2024-03-19'),
+    image: "https://example.com/trends.jpg"
+  }
+];
+---
+
+<Layout title="TGA Gaming Blog">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Hero Section -->
+    <section class="mb-12">
+      <h1 class="text-4xl font-bold text-ios-text mb-4">Welcome to TGA Gaming Blog</h1>
+      <p class="text-xl text-gray-600">Your source for gaming excellence and The Game Awards coverage</p>
+    </section>
+
+    <!-- Featured Games -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold text-ios-text mb-6">Featured Games</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredGames.map(game => (
+          <GamePin {...game} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Latest News -->
+    <section>
+      <h2 class="text-2xl font-semibold text-ios-text mb-6">Latest News</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {latestNews.map(news => (
+          <NewsCard {...news} />
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

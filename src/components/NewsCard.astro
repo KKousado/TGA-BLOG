@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  excerpt: string;
+  date: Date;
+  image: string;
+}
+
+const { title, excerpt, date, image } = Astro.props;
+import { format } from 'date-fns';
+---
+
+<article class="bg-ios-card rounded-ios shadow-sm overflow-hidden">
+  <img src={image} alt={title} class="w-full h-48 object-cover" />
+  <div class="p-4">
+    <time class="text-sm text-gray-500">{format(date, 'MMM dd, yyyy')}</time>
+    <h2 class="mt-2 text-xl font-semibold text-ios-text">{title}</h2>
+    <p class="mt-2 text-gray-600">{excerpt}</p>
+    <a href="#" class="mt-4 inline-block text-ios-primary">Read more →</a>
+  </div>
+</article>

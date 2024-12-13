@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string;
+  image: string;
+  rating: number;
+  category: string;
+}
+
+const { title, image, rating, category } = Astro.props;
+---
+
+<div class="bg-ios-card rounded-ios shadow-sm p-4 transition-all hover:shadow-md">
+  <img src={image} alt={title} class="w-full h-48 object-cover rounded-ios mb-4" />
+  <div class="space-y-2">
+    <h3 class="font-semibold text-lg text-ios-text">{title}</h3>
+    <div class="flex items-center justify-between">
+      <span class="text-sm text-gray-500">{category}</span>
+      <div class="flex items-center">
+        <span class="text-yellow-500">★</span>
+        <span class="ml-1 text-sm text-ios-text">{rating}</span>
+      </div>
+    </div>
+  </div>
+</div>
